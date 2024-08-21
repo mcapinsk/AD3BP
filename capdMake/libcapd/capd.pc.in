@@ -1,0 +1,14 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+# replace by *-config scripts
+capd_prefix=@CMAKE_INSTALL_PREFIX@
+
+Name: capd
+Description: capd library.
+Requires:
+Version: @CAPD_VERSION@
+Libs: -L${capd_prefix}/lib -L${libdir} -lcapd @CAPD_LIBS@
+Cflags: -I${capd_prefix}/include @CAPD_CFLAGS@

@@ -1,0 +1,1 @@
+(1/2)*(1+eps*J*sin(alpha))^(-2)*(eps^2*PHI2^2+4*eps*J*PHI2*sin(alpha)+J^2*(1+2*eps^2*PHI2)*sin(alpha)^2+J^2*cos(alpha)^2*(1+eps*J*sin(alpha))^2)

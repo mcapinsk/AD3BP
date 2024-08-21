@@ -1,0 +1,41 @@
+/*! \page capd_getit Get CAPD
+
+The source code of the CAPD::DynSys library is distributed under **GNU GPL license** and hosted as a public [**github.com/CAPDgroup/CAPD**](https://github.com/CAPDGroup/CAPD) repository. 
+
+
+\section capd_getit_source Download source code of the library
+
+The most recent **developed master branch** can be cloned from the repository
+
+\code
+git clone https://github.com/CAPDGroup/CAPD
+\endcode
+
+and then chekced for any updates by 
+
+\code
+git pull origin master
+\endcode
+
+
+The latest **stable relase** can be downloaded from 
+
+[**github.com/CAPDGroup/CAPD/releases**](https://github.com/CAPDGroup/CAPD/releases)
+
+Download and unpack one of the archives and follow the instructions from \ref capd_compilation "Compilation CAPD::DynSys of the library". We recommend to build CAPD outside the source directory.
+
+
+\section capd_getit_singularity Singularity image with CAPD installed
+
+[Singularity](https://sylabs.io/) is a virtualization software based on containers.
+Follow [Quick Start](https://docs.sylabs.io/guides/3.11/user-guide/quick_start.html) for install and basic use instructions.
+
+Project [capd-singularity-img](https://github.com/tomasz-kapela/capd-singularity-img) contains scripts that create Singularity image with [CAPD library](http://capd.ii.uj.edu.pl/)
+installed in `/usr/local` directory. The image is available through oficial Singularity library or can be created locally from scripts.
+
+You can simply run CAPD singularity image by invoking
+    \code{.sh}
+    singularity shell library://capdnet/capd/capd
+    \endcode
+
+*/

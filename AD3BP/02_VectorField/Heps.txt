@@ -1,0 +1,1 @@
+(-1)*PHI2+(1/2)*(1+(-1)*eps^2*((-1)+mu)*mu)*(PHI2^2*r2^(-2)+R2^2)+(-1)*mu*(r2^2+(-2)*((-1)+mu)*r2*cos(phi2)*(1+eps*J*sin(alpha))+((-1)+mu)^2*(1+eps*J*sin(alpha))^2)^(-1/2)+((-1)+mu)*(r2^2+(-2)*mu*r2*cos(phi2)*(1+eps*J*sin(alpha))+(mu+eps*J*mu*sin(alpha))^2)^(-1/2)
