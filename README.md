@@ -58,7 +58,7 @@ will store the final result. Should the proof fail due to errors or due to requi
 AD3BP/AD3BP/results/errors.txt
 AD3BP/AD3BP/results/failure_.txt
 
-(After a succesful run these files should be empty.)
+(After a succesful run these files will be empty.)
 
 ## Authorship
 
