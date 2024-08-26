@@ -60,4 +60,8 @@ AD3BP/AD3BP/results/failure_.txt
 
 (After a succesful run these files should be empty.)
 
+## Authorship
+
+Only the contents of the folder AD3BP/AD3BP constitute the proof Arnold diffusion in the 3bp, and the files included there have been written by Maciej J. Capinski. The remaining files are part of the CAPD library. These have been created by the CAPD Group.
+
 
