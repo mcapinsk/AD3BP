@@ -210,19 +210,24 @@ void writeFinalResult(int flag,const vector<interval> &dI,double time)
 	{
 		file << "The proof was fully successful." << endl;
 		file << "The total lower bound on the energy change is: " << totalI << endl;
+
+		cout << "The proof was fully successful." << endl;
+		cout << "The total lower bound on the energy change is: " << totalI << endl;
 	}else
 	{
 		file << "The proof was NOT fully succesful!" << endl;
 		file << "Indexes of files which failed are in the sets failure_.txt. " << endl;
 		file << "The total bound on the energy change for succesfull runs is: " << totalI << endl;
+
+		cout << "The proof was NOT fully succesful!" << endl;
+		cout << "Indexes of files which failed are in the sets failure_.txt. " << endl;
+		cout << "The total bound on the energy change for succesfull runs is: " << totalI << endl;
 	}
 	file << "Total computational time: " << time << endl;
 	file << "Number of threads used: " << n << endl;
-}
 
-void timer(int count,int step,ofstream &file)
-{
-	if((count % step)==0) file << count << endl;
+	cout << "Total computational time: " << time << endl;
+	cout << "Number of threads used: " << n << endl;
 }
 
 void singleRun()
@@ -259,8 +264,9 @@ int main()
 	int M=200000;
 
 	int N_of_threads=omp_get_max_threads();
-	ofstream fileP("progress.txt");
-	fileP << "Number of threads: " << N_of_threads << endl;
+	cout << "Number of threads: " << N_of_threads << endl;
+	cout << "In total we need to validate " << M << " connecting sequences." << endl;
+	cout << "We roport each consecutive 1000 connecting sequences which have been validated: " << endl;
 
 	vector<IMap*> f(N_of_threads); // vector field of the 3BP. We have these as a vector of objects, each object for a given processor. (To avoid potential clashes.)
 	vector<IOdeSolver*> solver(N_of_threads); // these will be C^1 solvers, which use the vector fields f.
@@ -302,8 +308,8 @@ int main()
   			fileE << i << endl;
   			fileE << "Exception caught: "<< e.what() << endl << endl;
   		}
-		timer(count,1000,fileP);
 		count++;
+		if((count % 1000)==0) cout << count << endl;
 	}
 		
 	for(int i=0;i<omp_get_max_threads();i++)
