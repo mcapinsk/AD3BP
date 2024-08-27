@@ -209,10 +209,10 @@ void writeFinalResult(int flag,const vector<interval> &dI,double time)
 	if(flag==1)
 	{
 		file << "The proof was fully successful." << endl;
-		file << "The total lower bound on the energy change is: " << totalI << endl;
+		file << "The total bound on the energy change is: " << totalI << endl;
 
 		cout << "The proof was fully successful." << endl;
-		cout << "The total lower bound on the energy change is: " << totalI << endl;
+		cout << "The total bound on the energy change is: " << totalI << endl;
 	}else
 	{
 		file << "The proof was NOT fully succesful!" << endl;
