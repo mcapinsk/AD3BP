@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     18100,        534]
-NotebookOptionsPosition[     17565,        512]
-NotebookOutlinePosition[     17986,        529]
-CellTagsIndexPosition[     17943,        526]
+NotebookDataLength[     23664,        664]
+NotebookOptionsPosition[     23129,        642]
+NotebookOutlinePosition[     23550,        659]
+CellTagsIndexPosition[     23507,        656]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -18,8 +18,96 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"<<", "ToMatlab.m"}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+   RowBox[{"<<", "ToMatlab.m"}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "This", " ", "is", " ", "a", " ", "slightly", " ", "simplified", " ", 
+     "formula", " ", "for", " ", "Keps"}], ",", " ", 
+    RowBox[{
+    "which", " ", "we", " ", "will", " ", "use", " ", "in", " ", "our", " ", 
+     RowBox[{"code", ":"}]}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Keps", " ", "=", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"1", "/", "2"}], " ", 
+      RowBox[{"R1", "^", "2"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"r1", "^", "2"}], "+", 
+        RowBox[{"eps", " ", "PHI2", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", "r1", 
+            RowBox[{"(", 
+             RowBox[{"2", "+", 
+              RowBox[{"eps", " ", "r1"}]}], ")"}]}], "+", 
+           RowBox[{"eps", " ", "PHI2"}]}], ")"}]}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"2", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"eps", " ", "r1"}]}], ")"}], "^", "2"}]}], ")"}]}]}]}], 
+   ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "We", " ", "make", " ", "sure", " ", "that", " ", "that", " ", "it", " ", 
+    "is", " ", "equivalent", " ", "to", " ", "the", " ", "one", " ", "from", 
+    " ", "the", " ", 
+    RowBox[{"paper", ".", " ", "After"}], " ", "executing", " ", "the", " ", 
+    "code", " ", "we", " ", "should", " ", "see", " ", "at", " ", "the", " ", 
+    "end", " ", "of", " ", "the", " ", "file", " ", "that", " ", "the", " ", 
+    "substraction", " ", "simplifies", " ", "to", " ", 
+    RowBox[{"zero", "."}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"KepsFromTheLemma", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"R1", "^", "2"}], "+", 
+      RowBox[{"r1", "^", "2"}], "+", 
+      RowBox[{"2", " ", "eps", " ", "r1", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", "PHI2"}], " ", "+", " ", 
+         RowBox[{"R1", "^", "2"}]}], ")"}]}], " ", "+", " ", 
+      RowBox[{
+       RowBox[{"eps", "^", "2"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"PHI2", "^", "2"}], "+", 
+         RowBox[{
+          RowBox[{"r1", "^", "2"}], 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "PHI2"}], "+", 
+            RowBox[{"R1", "^", "2"}]}], ")"}]}]}], ")"}]}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"2", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "+", 
+         RowBox[{"eps", " ", "r1"}]}], ")"}], "^", "2"}]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Simplify", "[", 
+   RowBox[{"KepsFromTheLemma", "-", "Keps"}], "]"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Below", " ", "we", " ", "also", " ", "demonstrate", " ", "that", " ", 
+    "the", " ", "cancellations", " ", "performed", " ", "in", " ", "the", " ",
+     "proof", " ", "are", " ", "indeed", " ", 
+    RowBox[{"correct", ".", " ", "After"}], " ", "executing", " ", "the", " ",
+     "code", " ", "we", " ", "should", " ", "see", " ", "at", " ", "the", " ",
+     "end", " ", "of", " ", "the", " ", "file", " ", "that", " ", "the", " ", 
+    "substraction", " ", "simplifies", " ", "to", " ", 
+    RowBox[{"zero", "."}]}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Aeps", " ", "=", " ", 
    RowBox[{
@@ -59,15 +147,22 @@ Cell[BoxData[{
            RowBox[{"eps", "^", "2"}], " ", "PHI2"}], " ", "-", " ", "2"}], 
          ")"}]}]}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{
-   RowBox[{"Keps", " ", "=", " ", 
-    RowBox[{
-     RowBox[{"1", "/", "2"}], " ", 
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{"R1", "^", "2"}], "+", "Ceps", " ", "-", " ", 
-       RowBox[{"2", " ", "Aeps"}]}], ")"}]}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+  RowBox[{"KepsFromTheProof", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"1", "/", "2"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"R1", "^", "2"}], "+", "Ceps", " ", "-", " ", 
+      RowBox[{"2", " ", "Aeps"}]}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Simplify", "[", 
+   RowBox[{"KepsFromTheProof", "-", "KepsFromTheLemma"}], "]"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Now", " ", "we", " ", "introduce", " ", "the", " ", "restricted", " ", 
+    "three", " ", "body", " ", "problem", " ", "Hamiltonian", " ", "Heps"}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"D1", " ", "=", " ", 
    RowBox[{"Sqrt", "[", 
@@ -131,13 +226,29 @@ Cell[BoxData[{
      RowBox[{
       RowBox[{"(", 
        RowBox[{"1", "-", "mu"}], ")"}], "/", "D1"}], " ", "-", " ", 
-     RowBox[{"mu", "/", "D2"}]}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+     RowBox[{"mu", "/", "D2"}]}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "This", " ", "is", " ", "the", " ", "full", " ", "three", " ", "body", " ",
+     "problem", " ", 
+    RowBox[{"Hamiltonian", ":"}]}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"H", " ", "=", " ", 
-    RowBox[{"Heps", " ", "+", " ", "Keps"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+    RowBox[{"Heps", " ", "+", " ", "Keps"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "We", " ", "compute", " ", "partial", " ", "derivatives", " ", "of", " ", 
+     "H", " ", "with", " ", "respect", " ", "to", " ", "r1"}], ",", " ", "R1",
+     ",", " ", "r2", ",", " ", "R2", ",", " ", 
+    RowBox[{"phi2", " ", "and", " ", 
+     RowBox[{"PHI2", ".", " ", "These"}], " ", "are", " ", "the", " ", 
+     "components", " ", "of", " ", "the", " ", "vector", " ", "field", " ", 
+     "induced", " ", "by", " ", 
+     RowBox[{"H", "."}]}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"dr1", "=", 
    RowBox[{"D", "[", 
@@ -170,7 +281,7 @@ Cell[BoxData[{
   RowBox[{"(*", 
    RowBox[{
     RowBox[{
-     RowBox[{"we", " ", "pass", " ", "to", " ", "polar", " ", 
+     RowBox[{"we", " ", "pass", " ", "to", " ", "the", " ", "polar", " ", 
       RowBox[{"coordinates", ":", " ", "R1"}]}], " ", "=", " ", 
      RowBox[{"J", " ", "Cos", 
       RowBox[{"(", "alpha", ")"}]}]}], ",", " ", 
@@ -187,15 +298,16 @@ Cell[BoxData[{
       RowBox[{"Cos", "[", "alpha", "]"}]}]}], ")"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"dalpha", " ", "=", " ", 
-   RowBox[{
-    RowBox[{"(", 
-     RowBox[{
-      RowBox[{"dr1", "*", 
-       RowBox[{"Cos", "[", "alpha", "]"}]}], " ", "-", " ", 
-      RowBox[{"dR1", "*", 
-       RowBox[{"Sin", "[", "alpha", "]"}]}]}], ")"}], "/", "J"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"dalpha", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"dr1", "*", 
+        RowBox[{"Cos", "[", "alpha", "]"}]}], " ", "-", " ", 
+       RowBox[{"dR1", "*", 
+        RowBox[{"Sin", "[", "alpha", "]"}]}]}], ")"}], "/", "J"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"dJ", " ", "=", " ", 
    RowBox[{"dJ", " ", "/.", " ", 
@@ -373,7 +485,17 @@ Cell[BoxData[{
       RowBox[{"(", 
        RowBox[{"J", " ", 
         RowBox[{"Sin", "[", "alpha", "]"}]}], ")"}]}]}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "We", " ", "now", " ", "write", " ", "out", " ", "the", " ", "computed", 
+    " ", "partial", " ", "derivatives", " ", "of", " ", "the", " ", 
+    "Hamiltonian", " ", "into", " ", "text", " ", 
+    RowBox[{"files", ".", " ", "These"}], " ", "will", " ", "then", " ", "be",
+     " ", "imported", " ", "by", " ", "our", " ", 
+    RowBox[{"c", "++"}], " ", "code", " ", "for", " ", "the", " ", "computer",
+     " ", "assisted", " ", 
+    RowBox[{"proof", "."}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"f", "=", " ", 
    RowBox[{"OpenWrite", "[", "\"\<H.txt\>\"", "]"}]}], 
@@ -506,11 +628,19 @@ Cell[BoxData[{
    3.919319507477395*^9, 3.919319540092567*^9}, {3.919319683337441*^9, 
    3.919319724549411*^9}, {3.919393018423655*^9, 3.919393059519437*^9}, {
    3.923797857797872*^9, 3.9237979008914948`*^9}, {3.923992610043652*^9, 
-   3.9239926455950317`*^9}, {3.924584169580285*^9, 
-   3.924584178025865*^9}},ExpressionUUID->"364e954c-5bfa-4fc8-aac5-\
+   3.9239926455950317`*^9}, {3.924584169580285*^9, 3.924584178025865*^9}, {
+   3.949978844364664*^9, 3.949978996008518*^9}, 3.949979064210771*^9, {
+   3.949988039061754*^9, 3.949988048908115*^9}, {3.949988089653482*^9, 
+   3.94998819573958*^9}, 3.94998822881769*^9, {3.9499882702755938`*^9, 
+   3.949988422145891*^9}, {3.949988517909487*^9, 3.949988521046483*^9}, {
+   3.9499887163700733`*^9, 3.9499887216611156`*^9}, {3.9502399613581543`*^9, 
+   3.950240035560728*^9}, {3.950240080816597*^9, 3.950240097659548*^9}, {
+   3.950240141437964*^9, 3.9502403280752687`*^9}, {3.9502404002353067`*^9, 
+   3.950240415090032*^9}, 
+   3.950240471113017*^9},ExpressionUUID->"364e954c-5bfa-4fc8-aac5-\
 647cfe253430"]
 },
-WindowSize->{1239, 770},
+WindowSize->{1425, 890},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 Magnification:>3. Inherited,
 FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (July 24, 2023)",
@@ -528,7 +658,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[400, 13, 17161, 497, 2372, "Input",ExpressionUUID->"364e954c-5bfa-4fc8-aac5-647cfe253430"]
+Cell[400, 13, 22725, 627, 2992, "Input",ExpressionUUID->"364e954c-5bfa-4fc8-aac5-647cfe253430"]
 }
 ]
 *)

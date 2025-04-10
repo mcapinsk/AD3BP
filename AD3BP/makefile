@@ -2,7 +2,7 @@
 PROGS = AD3BP
 
 # a list of all your units to be linked with your programs (space separated)
-OTHERS = readOrbits localCoordinateChange localMap
+OTHERS = readSections localCoordinateChange localMap
 
 # directory where capd scripts are (e.g. capd-config)
 CAPDBINDIR = ../build/bin/
