@@ -49,7 +49,6 @@ IVector Z(const IVector &x,const IVector &y)
 	z[6] = x[4];
 	return z;
 }
-
 IVector fromSectionCoordinates::G(const IVector &x,const IVector &y) const
 {
 	return G(Z(x,y));
@@ -176,29 +175,16 @@ toSectionCoordinates::toSectionCoordinates(IVector q_,IMatrix A)
 	kappa0=K(q0())[0];
 }
 
-////////////////////////////////
-// The change of coordinates computes 
-// 		x = (w1,w2,alpha,I,eps). 
-// From a point on the surface of section. This is done as follows. The
-//    Ainv(p-q) = (w1,w2,alpha,y4,y5,0,eps)
-// so w1,w2,alpha and eps simply follow from projections from Ainv(p-q).
-// The coordinate I is K(p)-kappa0, so taking I=K(p)-kappa0
 IVector toSectionCoordinates::image(IVector p) const
 {
 	IVector x(5);
+	x[3]=K(p)[0]-kappa0; // I
 	p=Ainv*(p-q);
 	for(int i=0;i<3;i++) x[i]=p[i]; // w1,w2,alpha
-	x[3]=K(p)[0]-kappa0; // I
 	x[4]=p[6]; // eps
 	return x;
 }
 
-/////////////////////////////
-// Looking at the comments for above toSectionCoordinates::image() 
-// we can see that the derivative is the composition of 
-//   - Ainv
-//   - derivative of the projections
-//   - derivative of K.
 IMatrix toSectionCoordinates::derivative(const IVector &p) const
 {
 	IMatrix C(5,7);

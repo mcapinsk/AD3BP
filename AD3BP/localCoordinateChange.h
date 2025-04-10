@@ -44,10 +44,7 @@ using namespace capd::matrixAlgorithms;
 // Remark: the fact that v = A*(0,0,0,0,0,1,0) is orthogonal to 
 // all other vectors is rigorously ensured by 
 //    makeOrthogonalToFifthColumn()
-// which is called in getLinearChanges(). This ensures that the fifth column
-// of the interval matrix surely contains a vector, which is orthogonal
-// to all other columns. This means that all the bounds obtained by the code
-// will also be valid for the case of the fifth column being orthogonal to the others.
+// which is called in getLinearChanges().
 // 
 // We consider an auxilary function: G:R^7 -> R^2
 //   G(w1,w2,alpha,I,y4,y5,eps) =
@@ -220,15 +217,6 @@ public:
 	IVector operator()(const IVector &p) const {return image(p);}
 	IMatrix operator[](const IVector &p) const {return derivative(p);}
 };
-
-///////////////////////////////////////
-// Class: toLocalCoordinates
-//
-// This class is used to take a point p from the Poincare section
-// and compute its image in the local coordinates (u,s,alpha,I,eps).
-// What this means is that we only add the linear coordinate change by a matrix B
-// to the coordinate changes already coded in toSectionCoordinates
-// class.
 
 class toLocalCoordinates
 {
