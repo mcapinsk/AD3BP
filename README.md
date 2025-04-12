@@ -84,10 +84,13 @@ This file contains classes for passing to and from loacl coordinates on the surf
 This contains a class for the computation of the section-to-section map along the flow, expressed in the appropriate local coordinates.
 
 - main.cpp
-Here we validate all the connecting sequences and compute the global bound (66) on the change of I from the paper.  
+Here we validate all the connecting sequences and compute the global bound (66) on the change of I from the paper. 
+
+- constants.h
+This file contains the mass parameter "mu" of the Neptune-Triton system so that it can be accessed by various parts of the program. 
 
 ## Authorship
 
-Only the contents of the folder AD3BP/AD3BP constitute the proof Arnold diffusion in the 3bp, and the files included there have been written by Maciej J. Capinski. The remaining files are part of the CAPD library. These have been created by the CAPD Group.
+Only the contents of the folder AD3BP/AD3BP constitute the proof of Arnold diffusion in the 3bp, and the files included there have been written by Maciej J. Capinski. The remaining files are part of the CAPD library. These have been created by the CAPD Group.
 
 

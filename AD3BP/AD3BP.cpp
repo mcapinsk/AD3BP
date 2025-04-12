@@ -385,7 +385,7 @@ int main(int argc, char* argv[])
   		int N_of_threads=omp_get_max_threads();
 		cout << "Number of threads: " << N_of_threads << endl;
 		cout << "In total we need to validate " << L << " connecting sequences." << endl;
-		cout << "We roport each consecutive 1000 connecting sequences which have been validated: " << endl;
+		cout << "We report each consecutive 1000 connecting sequences which have been validated: " << endl;
 
 		// For each thread we allocate a separate solver:
 		vector<IMap*> F(N_of_threads); // vector field of the 3BP. We have these as a vector of objects, each object for a given processor. (To avoid potential clashes.)
