@@ -10,7 +10,7 @@ CAPDBINDIR = ../build/bin/
 # setting compiler and linker flags
 CAPDFLAGS = `${CAPDBINDIR}capd-config --cflags`
 CAPDLIBS = `${CAPDBINDIR}capd-config --libs` -lgomp
-CXXFLAGS += ${CAPDFLAGS} -O2 -Wall -std=c++17 -Xpreprocessor -fopenmp
+CXXFLAGS += ${CAPDFLAGS} -O2 -Wall -std=c++17 -fopenmp
 
 # directory where object and dependancy files will be created
 OBJDIR = .obj/
