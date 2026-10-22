@@ -137,7 +137,11 @@ IVector propagateCone(IVector cone,const IMatrix &Df,bool &res)
 		cout << "Problem with cone condition. " << endl;
 		res=0;
 	}
-	for(int i=1;i<5;i++) cone[i]=cone[i]/cone[0].left();
+	for(int i=1;i<5;i++)
+	{
+		cone[i]=intervalHull(interval(0),cone[i]);
+		cone[i]=cone[i]/cone[0].left();
+	}
 	cone[0]=interval(1.0);
 	return cone;
 }
