@@ -18,39 +18,13 @@ localMap::localMap(IVector q0,IVector q1,IMatrix A0,IMatrix A1,IMatrix B0,IMatri
 	IVector w(7);
 	for(int i=0;i<7;i++) w[i]=A[1][i][5];
 	
-	section1 = new IAffineSection(q[1],w);
-	solver = &solver_; 
-	P = new IPoincareMap(*solver,*section1);
-}
+    solver = &solver_;
 
-localMap::~localMap()
-{
-	delete P;
-	delete section1;
-}
+	section1 = std::make_unique<IAffineSection>(q[1], w);
+	P = std::make_unique<IPoincareMap>(*solver, *section1);
 
-localMap& localMap::operator=(const localMap& other)
-{
-	if (this != &other)
-	{
-		q=other.get_q();
-		A=other.get_A();
-		B=other.get_B();
-
-		solver = other.solver; 
-		
-		psi   =fromLocalCoordinates(q[0],A[0],B[0]);
-		psiInv=toLocalCoordinates(q[1],A[1],B[1]);
-	
-		IVector w(7);
-		for(int i=0;i<7;i++) w[i]=A[1][i][5];
-		section1 = new IAffineSection(q[1],w);
-
-		P = new IPoincareMap(*solver,*section1);
-		K = new IMap(Energy2BPFormula());
-		K->setParameter("mu",mu);
-	}
-	return *this;
+	K = std::make_unique<IMap>(Energy2BPFormula());
+	K->setParameter("mu", mu);
 }
 
 IVector localMap::image(const IVector &X0,IVector &fx0,IMatrix &Df,interval &dI) const
@@ -113,8 +87,11 @@ vector<localMap> sequenceOfLocalMaps(IOdeSolver &solver)
 	B[n-1]=B[0];
 	q[n-1]=q[0];
 	
-	vector<localMap> f(n-1);
-	
-	for(int i=0;i<n-1;i++) f[i]=localMap(q[i],q[i+1],A[i],A[i+1],B[i],B[i+1],solver);
+	vector<localMap> f;
+	f.reserve(n-1);
+
+	for (int i = 0; i < n-1; ++i)
+		f.emplace_back(q[i], q[i+1], A[i], A[i+1], B[i], B[i+1], solver);
+
 	return f;
 }

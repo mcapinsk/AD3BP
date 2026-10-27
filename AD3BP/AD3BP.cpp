@@ -83,13 +83,14 @@ bool inStrip(interval alpha)
 // of N are mapped out of M along the x-coordinate.
 IVector isCovering(const IVector &N,const IVector &fN,const IVector &fx0,const IMatrix &Df,bool &res)
 {
+	interval delta=power(10.0,-15.0)*interval(-1,1);
 	res=1;
 
 	IVector M(5);
 	M[0]=N[0];  // x
-	M[1]=fN[1]; // y
-	M[2]=fN[2]; // alpha
-	M[3]=N[3]+Df[3][4]*N[4]; // I
+	M[1]=fN[1]+delta; // y
+	M[2]=fN[2]+delta; // alpha
+	M[3]=N[3]+Df[3][4]*N[4]+delta; // I
 	M[4]=N[4];  // eps
 
 	IVector Nl=N;

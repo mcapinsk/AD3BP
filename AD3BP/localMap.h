@@ -1,6 +1,7 @@
 #ifndef localMap_h
 #define localMap_h
 
+#include <memory>
 #include "capd/capdlib.h"
 #include <iostream>
 using namespace capd;
@@ -66,11 +67,11 @@ class localMap
 private:
 	fromLocalCoordinates psi;
 	toLocalCoordinates psiInv;
-	
-	IOdeSolver* solver;
-	IAffineSection* section1;
-	IPoincareMap* P;
-	IMap* K;
+
+	IOdeSolver* solver; // Externally owned.
+	std::unique_ptr<IAffineSection> section1;
+	std::unique_ptr<IPoincareMap> P;
+	std::unique_ptr<IMap> K;
 
 	vector<IVector> q;
 	vector<IMatrix> A;
@@ -78,9 +79,13 @@ private:
 public:	
 	localMap(IVector q0,IVector q1,IMatrix A0,IMatrix A1,IMatrix B0,IMatrix B1,IOdeSolver &solver_);
 	
-	localMap(){}
-	~localMap();
-	localMap& operator=(const localMap& other);
+	localMap() = delete;
+	~localMap() = default;
+	
+	// Moving transfers ownership without moving the pointed-to objects.
+	localMap(localMap&&) = default;
+	// Default move assignment
+	localMap& operator=(localMap&&) = delete;
 	
 	IVector image(const IVector &X0,IVector &fx0,IMatrix &Df,interval &dI) const;
 	IVector operator()(const IVector &X0,IVector &fx0,IMatrix &Df,interval &dI) const {return image(X0,fx0,Df,dI);}
